@@ -22,7 +22,7 @@ function validateCapitalNames(input) {
   for (const word of words) {
     const firstChar = word.charAt(0);
     if (firstChar !== firstChar.toUpperCase() || firstChar === firstChar.toLowerCase()) {
-      return { valid: false, error: '⚠️ Имя и Фамилия должны начинаться с заглавной буквы! (Например: Magomet Yashuzakov)' };
+      return { valid: false, error: '⚠️ Имя и Фамилия должны начинаться с заглавной буквы! (Например: Muhammet Orunov)' };
     }
   }
   return { valid: true };
@@ -31,7 +31,7 @@ function validateCapitalNames(input) {
 function validateUAEPhone(input) {
   const cleanPhone = input.trim().replace(/[\s\-\(\)]/g, '');
   if (!cleanPhone.startsWith('+971')) {
-    return { valid: false, error: '⚠️ Номер телефона должен начинаться с кода ОАЭ: **+971** (например: +971565083149)' };
+    return { valid: false, error: '⚠️ Номер телефона должен начинаться с кода ОАЭ: **+971** (например: +971550000000)' };
   }
   const digitsAfterCode = cleanPhone.slice(4);
   if (!/^\d{8,9}$/.test(digitsAfterCode)) {
@@ -447,7 +447,7 @@ const estimatorScene = new Scenes.WizardScene(
         await ctx.answerCbQuery();
         state.client.type = 'individual';
         state.stepClient = 'ind_name';
-        await ctx.reply('👤 Введите **Имя и Фамилию** клиента (каждое слово с заглавной буквы, например: *Magomet Yashuzakov*):');
+        await ctx.reply('👤 Введите **Имя и Фамилию** клиента (каждое слово с заглавной буквы, например: *Muhammet Orunov*):');
         return;
       }
 
@@ -463,7 +463,7 @@ const estimatorScene = new Scenes.WizardScene(
         await ctx.answerCbQuery();
         state.client.trn = '-';
         state.stepClient = 'comp_contact';
-        await ctx.reply('👤 Введите **Имя и Фамилию** контактного лица (каждое слово с заглавной буквы, например: *Magomet Yashuzakov*):');
+        await ctx.reply('👤 Введите **Имя и Фамилию** контактного лица (каждое слово с заглавной буквы, например: *Muhammet Orunov*):');
         return;
       }
     }
@@ -479,7 +479,7 @@ const estimatorScene = new Scenes.WizardScene(
         }
         state.client.name = text;
         state.stepClient = 'ind_phone';
-        await ctx.reply('📞 Введите номер телефона клиента (Обязательно начиная с **+971**, например: *+971565083149*):', { parse_mode: 'Markdown' });
+        await ctx.reply('📞 Введите номер телефона клиента (Обязательно начиная с **+971**, например: *+971550000000*):', { parse_mode: 'Markdown' });
         return;
       }
 
@@ -516,7 +516,7 @@ const estimatorScene = new Scenes.WizardScene(
         }
         state.client.trn = check.formatted;
         state.stepClient = 'comp_contact';
-        await ctx.reply('👤 Введите **Имя и Фамилию** контактного лица (каждое слово с заглавной буквы, например: *Magomet Yashuzakov*):');
+        await ctx.reply('👤 Введите **Имя и Фамилию** контактного лица (каждое слово с заглавной буквы, например: *Muhammet Orunov*):');
         return;
       }
 
@@ -528,7 +528,7 @@ const estimatorScene = new Scenes.WizardScene(
         }
         state.client.name = text;
         state.stepClient = 'comp_phone';
-        await ctx.reply('📞 Введите номер телефона контактного лица (Обязательно начиная с **+971**, например: *+971565083149*):', { parse_mode: 'Markdown' });
+        await ctx.reply('📞 Введите номер телефона контактного лица (Обязательно начиная с **+971**, например: *+971550000000*):', { parse_mode: 'Markdown' });
         return;
       }
 
