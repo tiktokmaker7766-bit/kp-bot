@@ -22,7 +22,7 @@ function validateCapitalNames(input) {
   for (const word of words) {
     const firstChar = word.charAt(0);
     if (firstChar !== firstChar.toUpperCase() || firstChar === firstChar.toLowerCase()) {
-      return { valid: false, error: '⚠️ Имя и Фамилия должны начинаться с заглавной буквы! (Например: Magomet Yashuzakov)' };
+      return { valid: false, error: '⚠️ Имя и Фамилия должны начинаться с заглавной буквы! ' };
     }
   }
   return { valid: true };
